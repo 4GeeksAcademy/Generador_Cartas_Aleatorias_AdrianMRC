@@ -22,9 +22,15 @@ function generarCarta() {
 
   // Actualizar valor central
   cartaDiv.querySelector('.value').textContent = valor;
-}
-let intervaloContador, tiempoRestante, temporizadorActivo = false;
 
+  // Actualizar tamaño de la carta
+  const { value: ancho = 200 } = document.getElementById('ancho');
+  const { value: alto = 300 } = document.getElementById('alto');
+  carta.style.width = `${ancho}px`;
+  carta.style.height = `${alto}px`;
+}
+
+let intervaloContador, tiempoRestante = false;
 const actualizarTemporizador = () => {
   const temp = document.getElementById('temporizador');
   const activo = temporizadorActivo && tiempoRestante > 0;
@@ -49,6 +55,3 @@ const detenerTemporizador = () => {
   clearInterval(intervaloContador);
   actualizarTemporizador();
 };
-
-const width = variables.width ? `${variables.width}px` : 500;
-const height = variables.height ? `${variables.height}px` : 500;

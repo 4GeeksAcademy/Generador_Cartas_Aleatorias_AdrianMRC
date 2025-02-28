@@ -15,15 +15,14 @@
     <div class="value"></div>
   </div>
   <div class="controls">
+    <input type="number" id="ancho" placeholder="Ancho (px)">
+    <input type="number" id="alto" placeholder="Alto (px)">
     <button onclick="generarCarta()">Nueva Carta</button>
-    <button onclick="iniciarTemporizador()" class="btn-timer" id="iniciarTimer">▶ Iniciar</button>
-    <button onclick="detenerTemporizador()" class="btn-timer" id="detenerTimer">⏹ Detener</button>
+    <button onclick="iniciarTemporizador()" >▶ Iniciar</button>
+    <button onclick="detenerTemporizador()" >⏹ Detener</button>
     <div id="temporizador">Siguiente carta en: 10s</div>
   </div>
-  <label>Width</label>
-  <input class="picker" for="width" type="text" />
-  <label>Height</label>
-  <input class="picker" for="height" type="text" />
+
   <script src="app.js"></script>
 </body>
 
