@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta Aleatoria</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Aleatoria</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body onload="generarCarta()">
+
+<body>
   <div id="carta" class="card">
     <div class="top-left"></div>
     <div class="bottom-right"></div>
     <div class="value"></div>
   </div>
+  <div class="controls">
+    <button onclick="generarCarta()">Nueva Carta</button>
+    <button onclick="iniciarTemporizador()" class="btn-timer" id="iniciarTimer">▶ Iniciar</button>
+    <button onclick="detenerTemporizador()" class="btn-timer" id="detenerTimer">⏹ Detener</button>
+    <div id="temporizador">Siguiente carta en: 10s</div>
+  </div>
+  <label>Width</label>
+  <input class="picker" for="width" type="text" />
+  <label>Height</label>
+  <input class="picker" for="height" type="text" />
   <script src="app.js"></script>
 </body>
+
 </html>
-
-
-<!-- revisar para poner los palos bien, modo espejo y solo en dos esquinas
-poner el numero con el color que coincida con el palo -->
-

@@ -2,13 +2,13 @@ function generarCarta() {
   const palos = ['heart', 'diamond', 'spade', 'club'];
   const valores = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
-  const palo = palos[Math.floor(Math.random() * 4)];
-  const valor = valores[Math.floor(Math.random() * 13)];
+  const palo = palos[Math.floor(Math.random() * palos.length)];
+  const valor = valores[Math.floor(Math.random() * valores.length)];
 
   const cartaDiv = document.getElementById('carta');
   cartaDiv.className = `card ${palo}`;
-  
-  // Actualizar todos los símbolos
+
+  // Actualizar todos los símbolos, objeto literal inmediatamente accedido
   const simbolo = {
     heart: '♥',
     diamond: '♦',
@@ -23,3 +23,32 @@ function generarCarta() {
   // Actualizar valor central
   cartaDiv.querySelector('.value').textContent = valor;
 }
+let intervaloContador, tiempoRestante, temporizadorActivo = false;
+
+const actualizarTemporizador = () => {
+  const temp = document.getElementById('temporizador');
+  const activo = temporizadorActivo && tiempoRestante > 0;
+  temp.textContent = activo ? `Siguiente carta en: ${tiempoRestante}s` : 'Timer detenido';
+};
+const iniciarTemporizador = () => {
+  temporizadorActivo = true;
+  tiempoRestante = 10;
+  clearInterval(intervaloContador);
+  intervaloContador = setInterval(() => {
+    tiempoRestante--;
+    actualizarTemporizador();
+    if (tiempoRestante <= 0) {
+      generarCarta();
+      tiempoRestante = 10;
+    }
+  }, 1000);
+  actualizarTemporizador();
+};
+const detenerTemporizador = () => {
+  temporizadorActivo = false;
+  clearInterval(intervaloContador);
+  actualizarTemporizador();
+};
+
+const width = variables.width ? `${variables.width}px` : 500;
+const height = variables.height ? `${variables.height}px` : 500;

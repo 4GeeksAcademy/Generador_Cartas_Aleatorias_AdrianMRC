@@ -41,3 +41,15 @@ body {
 .card .bottom-right { bottom: 5px;  right: 5px; transform: rotateX(180deg);}
 .heart, .diamond { color: red; }
 .spade, .club { color: black; }
+
+.controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
